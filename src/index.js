@@ -10,4 +10,4 @@ root.render(
     <App />
   </BrowserRouter>
 );
-import "./index.css"; // Ensure you have your CSS file imported
+
