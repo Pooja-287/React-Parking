@@ -331,7 +331,7 @@ const ExtendPass = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/public/${id}`)
+    axios.get(`https://kj8cjmpw-5000.inc1.devtunnels.ms/api/public/${id}`)
       .then((res) => setPass(res.data))
       .catch((err) => {
         console.error('Error fetching pass:', err);
@@ -363,7 +363,7 @@ const ExtendPass = () => {
     setIsPaying(true);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/payment/create-order', {
+      const res = await axios.post('https://kj8cjmpw-5000.inc1.devtunnels.ms/api/payment/create-order', {
         amount: additionalAmount
       });
  
@@ -376,7 +376,7 @@ const ExtendPass = () => {
         order_id: res.data.orderId,
         handler: async function (response) {
           // Optional: Save Razorpay payment details
-          await axios.put(`http://localhost:5000/api/extendPass/${id}`, {
+          await axios.put(`https://kj8cjmpw-5000.inc1.devtunnels.ms/api/extendPass/${id}`, {
             months: parseInt(months),
             paymentId: response.razorpay_payment_id,
             signature: response.razorpay_signature,
